@@ -8,7 +8,7 @@ export default class History extends Component {
 
         return (
             <div className='history'>
-                {history.map(item => <HistoryDay city={item.city} temp={item.temp} datetime={datetime}/>)}
+                {history.map((item, i) => <HistoryDay key={i} city={item.city} temp={item.temp} datetime={datetime}/>)}
             </div>
         )
     }

@@ -23,15 +23,6 @@ export default class Widger extends Component {
 	c32.7-19,68.1-32,105.2-38.6L-8-46.1C-13-45.2-17.8-43.4-22.2-40.8z M22-40.9c-4.4-2.6-9.2-4.3-14.2-5.1l47.1-273.6
 	c37.2,6.4,72.7,19.2,105.4,38L22-40.9z"/>
                 </svg>
-                <nav>
-                    <ul>
-                        <li><a id='button-snow' className='active'><i className='wi wi-snow'></i></a></li>
-                        <li><a id='button-wind'><i className='wi wi-strong-wind'></i></a></li>
-                        <li><a id='button-rain'><i className='wi wi-rain'></i></a></li>
-                        <li><a id='button-thunder'><i className='wi wi-lightning'></i></a></li>
-                        <li><a id='button-sun'><i className='wi wi-day-sunny'></i></a></li>
-                    </ul>
-                </nav>
                 <div id='card' className='weather'>
                     <svg id='inner'>
                         <defs>

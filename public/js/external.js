@@ -101,13 +101,13 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
         // 🖱 bind weather menu buttons
 
-        for(var i = 0; i < weather.length; i++)
-        {
-            var w = weather[i];
-            var b = $('#button-' + w.type);
-            w.button = b;
-            b.bind('click', w, changeWeather);
-        }
+        // for(var i = 0; i < weather.length; i++)
+        // {
+        //     var w = weather[i];
+        //     var b = $('#button-' + w.type);
+        //     w.button = b;
+        //     b.bind('click', w, changeWeather);
+        // }
 
         // ☁️ draw clouds
 
@@ -478,7 +478,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
         for(var i = 0; i < weather.length; i++)
         {
             container.removeClass(weather[i].type);
-            weather[i].button.removeClass('active');
+            // weather[i].button.removeClass('active');
         }
     }
 
@@ -523,6 +523,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
         TweenMax.to(strike.node, 1, {opacity: 0, ease:Power4.easeOut, onComplete: function(){ strike.remove(); strike = null}})
     }
 
+    window.changeWeather = changeWeather;
+
     function changeWeather(weather)
     {
         if(weather.data) weather = weather.data;
@@ -534,7 +536,8 @@ document.addEventListener("DOMContentLoaded", function(event) {
         TweenMax.to(summary, 1, {opacity: 0, x: -30, onComplete: updateSummaryText, ease: Power4.easeIn})
 
         container.addClass(weather.type);
-        weather.button.addClass('active');
+
+        // weather.button.addClass('active');
 
         // windSpeed
 

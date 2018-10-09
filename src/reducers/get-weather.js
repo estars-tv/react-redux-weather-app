@@ -3,13 +3,17 @@ import actions from '../constants/action-types';
 const initialState = {
     loading: true,
     errorLabel: '',
-    currentWeather: null
+    currentWeather: null,
+    weatherType: ''
 };
 
 export default function weather(state = initialState, action) {
     switch (action.type) {
         case actions.DISPLAY_LOADER:
             return {...state, loading: action.loading};
+
+        case actions.SET_WEATHER:
+            return {...state, weatherType: action.weatherType};
 
         case actions.DISPLAY_ERROR:
             return {...state, errorLabel: action.errorLabel};

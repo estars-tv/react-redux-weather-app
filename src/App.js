@@ -7,14 +7,20 @@ import * as actions from './actions';
 import './styles/main.css';
 import Widget from './components/widget';
 import Loader from './components/loader';
-import {DEFAULT_CITY} from './constants/api';
+import {DEFAULT_CITY, WEATHER} from './constants/api';
 import getDateTime from './utils';
 
 class App extends Component {
-    componentWillMount() {
+    componentDidMount() {
         const actions = this.props.actions;
 
         actions.getWeather(DEFAULT_CITY);
+    }
+
+    componentDidUpdate() {
+        const weatherType = this.props.weather.weatherType;
+
+        window.changeWeather({type: WEATHER[weatherType.toUpperCase()]});
     }
 
     render() {
