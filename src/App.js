@@ -19,15 +19,34 @@ class App extends Component {
     render() {
         const actions = this.props.actions,
             errorLabel = this.props.weather.errorLabel,
-            loading = this.props.weather.loading;
+            loading = this.props.weather.loading,
+            currentWeather = this.props.weather.currentWeather,
+            temp = currentWeather ? currentWeather.main.temp : null,
+            city = currentWeather ? currentWeather.name : null,
+            datetime = function () {
+                if (currentWeather && currentWeather.dt) {
+                    const date = new Date(currentWeather.dt * 1000),
+                        year = date.getFullYear(),
+                        month = date.getMonth() + 1,
+                        day = date.getDate(),
+                        hours = date.getHours(),
+                        minutes = `0${date.getMinutes()}`,
+                        seconds = `0${date.getSeconds()}`;
+
+                    return `${day}.${month}.${year} ${hours}:${minutes.substr(-2)}:${seconds.substr(-2)}`;
+                } else {
+                    return null;
+                }
+            },
+            history = this.props.history;
 
         return (
             <div className='background'>
                 <div className='container'>
                     <Search loading={loading} actions={actions} errorLabel={errorLabel}/>
-                    <Widget loading={loading} />
+                    <Widget loading={loading} temp={temp} city={city} datetime={datetime()}/>
                     <Loader loading={loading}/>
-                    <History/>
+                    <History history={history}/>
                 </div>
             </div>
         );
@@ -36,7 +55,8 @@ class App extends Component {
 
 function mapStateToProps(state) {
     return {
-        weather: state.weather
+        weather: state.weather,
+        history: state.history
     }
 }
 

@@ -10,9 +10,11 @@ export default class Search extends Component {
         return (
             loading ? null :
                 <div className='search-container'>
-                    <input type='text'/>
+                    <input type="text" ref={(input) => {
+                        this.searchInput = input;
+                    }}/>
                     <button onClick={() => {
-                        actions.getWeather('Moscow');
+                        actions.getWeather(this.searchInput.value);
                     }}>Найти
                     </button>
 

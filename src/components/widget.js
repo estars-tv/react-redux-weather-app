@@ -2,7 +2,10 @@ import React, {Component} from 'react'
 
 export default class Widger extends Component {
     render() {
-        const loading = this.props.loading;
+        const loading = this.props.loading,
+            temp = this.props.temp,
+            city = this.props.city,
+            datetime = this.props.datetime;
 
         return (
             <div className={loading ? 'hidden' : ''}>
@@ -44,9 +47,10 @@ export default class Widger extends Component {
                         <g id='cloud1' className='cloud'></g>
                     </svg>
                     <div className='details'>
-                        <div className='temp'>20<span>c</span></div>
+                        <div className='temp'>{temp}<span>c</span></div>
                         <div className='right'>
-                            <div id='date'>Monday 22 August</div>
+                            <div id='city'>{city}</div>
+                            <div id='date'>{datetime}</div>
                             <div id='summary'></div>
                         </div>
 
