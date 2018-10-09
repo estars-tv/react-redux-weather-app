@@ -2,8 +2,10 @@ import React, {Component} from 'react'
 
 export default class Widger extends Component {
     render() {
+        const loading = this.props.loading;
+
         return (
-            <div>
+            <div className={loading ? 'hidden' : ''}>
                 <svg id="back">
                     <radialGradient id="SVGID_1_" cx="0" cy="0" r="320.8304" gradientUnits="userSpaceOnUse">
                         <stop offset="0" style={{stopColor: '#FFDE17', stopOpacity: 0.7}}/>

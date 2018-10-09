@@ -10,7 +10,7 @@ export default class Search extends Component {
             <div className='search-container'>
                 <input type='text'/>
                 <button onClick={() => {
-                    actions.displayError('asddasasd aasd asas 23443');
+                    actions.getWeather('Moscow');
                 }}>Найти
                 </button>
 

@@ -18,16 +18,13 @@ class App extends Component {
             <div className='background'>
                 <div className='container'>
                     <Search actions={actions} errorLabel={errorLabel}/>
-                    {displayWidget(loading)}
+                    <Widget loading={loading} />
+                    <Loader loading={loading}/>
                     <History/>
                 </div>
             </div>
         );
     }
-}
-
-function displayWidget(loader) {
-    return loader ? <Loader/> : <Widget/>;
 }
 
 function mapStateToProps(state) {

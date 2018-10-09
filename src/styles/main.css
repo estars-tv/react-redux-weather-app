@@ -152,3 +152,7 @@ nav li a.active {
     position: fixed;
     pointer-events: none;
 }
+
+.hidden {
+    display: none;
+}
