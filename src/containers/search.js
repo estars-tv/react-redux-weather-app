@@ -1,12 +1,20 @@
 import React, {Component} from 'react'
+import ErrorLabel from '../components/error-label';
 
 export default class Search extends Component {
     render() {
+        const actions = this.props.actions,
+            error = this.props.errorLabel;
+
         return (
             <div className='search-container'>
-                <input type='text' />
-                <button>Поиск</button>
-                <p>Ошибка</p>
+                <input type='text'/>
+                <button onClick={() => {
+                    actions.displayError('asddasasd aasd asas 23443');
+                }}>Найти
+                </button>
+
+                <ErrorLabel error={error}/>
             </div>
         )
     }
