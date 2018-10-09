@@ -8,6 +8,7 @@ import './styles/main.css';
 import Widget from './components/widget';
 import Loader from './components/loader';
 import {DEFAULT_CITY} from './constants/api';
+import getDateTime from './utils';
 
 class App extends Component {
     componentWillMount() {
@@ -23,30 +24,16 @@ class App extends Component {
             currentWeather = this.props.weather.currentWeather,
             temp = currentWeather ? currentWeather.main.temp : null,
             city = currentWeather ? currentWeather.name : null,
-            datetime = function () {
-                if (currentWeather && currentWeather.dt) {
-                    const date = new Date(currentWeather.dt * 1000),
-                        year = date.getFullYear(),
-                        month = date.getMonth() + 1,
-                        day = date.getDate(),
-                        hours = date.getHours(),
-                        minutes = `0${date.getMinutes()}`,
-                        seconds = `0${date.getSeconds()}`;
-
-                    return `${day}.${month}.${year} ${hours}:${minutes.substr(-2)}:${seconds.substr(-2)}`;
-                } else {
-                    return null;
-                }
-            },
+            datetime = currentWeather ? getDateTime(currentWeather.dt) : null,
             history = this.props.history;
 
         return (
             <div className='background'>
                 <div className='container'>
                     <Search loading={loading} actions={actions} errorLabel={errorLabel}/>
-                    <Widget loading={loading} temp={temp} city={city} datetime={datetime()}/>
+                    <Widget loading={loading} temp={temp} city={city} datetime={datetime}/>
                     <Loader loading={loading}/>
-                    <History history={history}/>
+                    <History history={history} datetime={datetime}/>
                 </div>
             </div>
         );

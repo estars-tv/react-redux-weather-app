@@ -3,11 +3,12 @@ import HistoryDay from '../components/history-day';
 
 export default class History extends Component {
     render() {
-        const history = this.props.history;
+        const history = this.props.history,
+            datetime = this.props.datetime;
 
         return (
             <div className='history'>
-                {history.map(item => <HistoryDay city={item.city} temp={item.temp}/>)}
+                {history.map(item => <HistoryDay city={item.city} temp={item.temp} datetime={datetime}/>)}
             </div>
         )
     }

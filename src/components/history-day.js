@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 
 export default class HistoryDay extends Component {
     render() {
@@ -7,9 +7,9 @@ export default class HistoryDay extends Component {
             temp = this.props.temp;
 
         return (<div className='day'>
-            {/*<p>{datetime}</p>*/}
             <p className='city'>{city}</p>
             <p>{temp} c</p>
+            <p className='datetime'>{datetime}</p>
         </div>)
     }
 }
