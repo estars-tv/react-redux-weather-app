@@ -7,8 +7,15 @@ import * as actions from './actions';
 import './styles/main.css';
 import Widget from './components/widget';
 import Loader from './components/loader';
+import {DEFAULT_CITY} from './constants/api';
 
 class App extends Component {
+    componentWillMount() {
+        const actions = this.props.actions;
+
+        actions.getWeather(DEFAULT_CITY);
+    }
+
     render() {
         const actions = this.props.actions,
             errorLabel = this.props.weather.errorLabel,
@@ -17,7 +24,7 @@ class App extends Component {
         return (
             <div className='background'>
                 <div className='container'>
-                    <Search actions={actions} errorLabel={errorLabel}/>
+                    <Search loading={loading} actions={actions} errorLabel={errorLabel}/>
                     <Widget loading={loading} />
                     <Loader loading={loading}/>
                     <History/>

@@ -4,18 +4,20 @@ import ErrorLabel from '../components/error-label';
 export default class Search extends Component {
     render() {
         const actions = this.props.actions,
-            error = this.props.errorLabel;
+            error = this.props.errorLabel,
+            loading = this.props.loading;
 
         return (
-            <div className='search-container'>
-                <input type='text'/>
-                <button onClick={() => {
-                    actions.getWeather('Moscow');
-                }}>Найти
-                </button>
+            loading ? null :
+                <div className='search-container'>
+                    <input type='text'/>
+                    <button onClick={() => {
+                        actions.getWeather('Moscow');
+                    }}>Найти
+                    </button>
 
-                <ErrorLabel error={error}/>
-            </div>
+                    <ErrorLabel error={error}/>
+                </div>
         )
     }
 }
