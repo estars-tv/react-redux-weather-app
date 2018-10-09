@@ -8,7 +8,7 @@ export default class HistoryDay extends Component {
 
         return (<div className='day'>
             {/*<p>{datetime}</p>*/}
-            <p>{city}</p>
+            <p className='city'>{city}</p>
             <p>{temp} c</p>
         </div>)
     }

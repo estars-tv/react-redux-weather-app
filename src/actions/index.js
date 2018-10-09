@@ -37,6 +37,7 @@ export const getWeather = (city) => dispatch => {
         })
         .then((weather) => {
             dispatch({type: actions.FETCH_WEATHER_SUCCESS, currentWeather: weather});
+            dispatch({type: actions.REMOVE_FROM_HISTORY});
             dispatch({type: actions.ADD_TO_HISTORY, data: weather});
             dispatch({type: actions.DISPLAY_LOADER, loading: false});
         })

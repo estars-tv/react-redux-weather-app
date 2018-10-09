@@ -12,7 +12,9 @@ export default function history(state = [], action) {
             ];
 
         case actions.REMOVE_FROM_HISTORY:
-            return [...state.splice(0, 1)];
+            if (state.length === 10) state.splice(0, 1);
+
+            return [...state];
 
         default:
             return state;
