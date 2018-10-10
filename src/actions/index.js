@@ -36,7 +36,7 @@ function setWeather(weatherType) {
 }
 
 export const getWeather = (city) => dispatch => {
-    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`)
         .then((response) => {
             if (response.status === 200) return response.json();
 
