@@ -4,6 +4,6 @@ export default class ErrorLabel extends Component {
     render() {
         const error = this.props.error;
 
-        return (<p>{error}</p>)
+        return (<p className='error'>{error}</p>)
     }
 }

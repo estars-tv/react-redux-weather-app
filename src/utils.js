@@ -1,3 +1,8 @@
+/**
+ * @name getDateTime - преобразование unix timestamp в дату и время вида dd.mm.yyyy hh:mm:ss
+ * @param {number} dateTime - unix timestamp
+ * @returns {string}
+ */
 function getDateTime(dateTime) {
     const date = new Date(dateTime * 1000),
         year = date.getFullYear(),

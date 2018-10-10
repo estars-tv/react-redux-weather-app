@@ -50,8 +50,8 @@ export const getWeather = (city) => dispatch => {
             dispatch({type: actions.DISPLAY_LOADER, loading: false});
             dispatch({type: actions.DISPLAY_ERROR, errorLabel: ''});
         })
-        .catch(() => {
-            dispatch({type: actions.DISPLAY_ERROR, errorLabel: 'API ERROR'})
+        .catch((error) => {
+            dispatch({type: actions.DISPLAY_ERROR, errorLabel: `API ERROR: ${error}`})
         });
 };
 

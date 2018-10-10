@@ -172,6 +172,8 @@ nav li a.active {
 
 #outer, #back {
     position: fixed;
+    left: 0;
+    right: 0;
     pointer-events: none;
 }
 
@@ -193,4 +195,8 @@ nav li a.active {
 .day .datetime {
     font-weight: bold;
     font-size: 10px;
+}
+
+.error {
+    color: #ff0000;
 }

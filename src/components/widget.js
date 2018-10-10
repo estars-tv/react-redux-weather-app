@@ -8,7 +8,7 @@ export default class Widger extends Component {
             datetime = this.props.datetime;
 
         return (
-            <div className={loading ? 'hidden' : ''}>
+            <section className={loading ? 'hidden' : ''}>
                 <svg id="back">
                     <radialGradient id="SVGID_1_" cx="0" cy="0" r="320.8304" gradientUnits="userSpaceOnUse">
                         <stop offset="0" style={{stopColor: '#FFDE17', stopOpacity: 0.7}}/>
@@ -48,7 +48,7 @@ export default class Widger extends Component {
                     </div>
                 </div>
                 <svg id='outer'></svg>
-            </div>
+            </section>
         )
     }
 }
